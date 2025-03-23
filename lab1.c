@@ -22,7 +22,7 @@ struct Laptop initializare(int id, int ram,const char* producator, float pret, c
 }
 
 void afisare(struct Laptop l) {
-	
+	printf("%d. Laptopul %s seria %c are %d GB RAM, costa %5.2f RON\n", l.id, l.producator, l.model, l.RAM, l.pret);
 }
 
 void modifica_Atribut(struct Laptop l) {
@@ -36,5 +36,6 @@ void dezalocare(struct Laptop* l) {
 
 int main() {
 	struct Laptop l;
+	l = initializare(1, 16, "Dell", 4000, 5, "S");
 	return 0;
 }
