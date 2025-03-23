@@ -36,6 +36,7 @@ void dezalocare(struct Laptop* l) {
 
 int main() {
 	struct Laptop l;
-	l = initializare(1, 16, "Dell", 4000, 5, "S");
+	l = initializare(1, 16, "Dell", 4000.5, 'S');
+	afisare(l);
 	return 0;
 }
