@@ -25,7 +25,10 @@ void afisare(struct Laptop l) {
 	printf("%d. Laptopul %s seria %c are %d GB RAM, costa %5.2f RON\n", l.id, l.producator, l.model, l.RAM, l.pret);
 }
 
-void modifica_Atribut(struct Laptop l) {
+void modificaPret(struct Laptop l, float noulPret) {
+	if (noulPret > 0) {
+		l.pret = noulPret;
+	}
 
 }
 
