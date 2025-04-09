@@ -22,24 +22,37 @@ struct Laptop initializare(int id, int ram,const char* producator, float pret, c
 }
 
 void afisare(struct Laptop l) {
-	printf("%d. Laptopul %s seria %c are %d GB RAM, costa %5.2f RON\n", l.id, l.producator, l.model, l.RAM, l.pret);
+	if (l.producator != NULL) {
+		printf("%d. Laptopul %s seria %c are %d GB RAM, costa %5.2f RON\n", l.id, l.producator, l.model, l.RAM, l.pret);
+
+	}
+	else {
+		printf("%d. Laptopul seria %c are %d GB RAM, costa %5.2f RON\n", l.id, l.model, l.RAM, l.pret);
+	}
 }
 
-void modificaPret(struct Laptop l, float noulPret) {
+void modificaPret(struct Laptop* l, float noulPret) {
 	if (noulPret > 0) {
-		l.pret = noulPret;
+		l->pret = noulPret;
 	}
 
 }
 
 
 void dezalocare(struct Laptop* l) {
-
+	if (l->producator != NULL) {
+		free(l->producator);
+		l->producator = NULL;
+	}
 }
 
 int main() {
 	struct Laptop l;
 	l = initializare(1, 16, "Dell", 4000.5, 'S');
+	afisare(l);
+	modificaPret(&l, 1000);
+	afisare(l);
+	dezalocare(&l);
 	afisare(l);
 	return 0;
 }
